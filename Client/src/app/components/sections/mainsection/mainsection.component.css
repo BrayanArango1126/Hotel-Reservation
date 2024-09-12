@@ -1,0 +1,21 @@
+.search-bar{
+  background-color: #f8f9fa;
+  border-radius: 13px;
+  padding: 10px;
+  left: 25%;
+  right: 25%;
+}
+
+.shadow-custom{
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+.btn-custom{
+  background-color: #6704be;
+  color: #ffffff;
+  border-radius: 13px;
+  margin: 0px 5px;
+  transition: 0.3s;
+}
+.btn-custom:hover{
+  background-color: #6704bec4;
+}
