@@ -1,0 +1,32 @@
+.card-custom-reservation{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+  padding: 20px;
+}
+.he-100{
+  height: 100%;
+}
+.w-100{
+  width: 100%;
+}
+.w-40{
+  width: 40%;
+}
+.w-60{
+  width: 60%;
+}
+
+.container-hotel{
+  height: 200px;
+}
+.container-info-hotel{
+  height: 100%;
+}
+.container-info-hotel-reservation{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

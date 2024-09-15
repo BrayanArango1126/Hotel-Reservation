@@ -1,0 +1,19 @@
+.container-img > img{
+  width: 100%;
+  height: 100%;
+}
+
+.container-img{
+  height: 600px;
+}
+
+.container-img > div{
+  top: 20%;
+}
+
+.container-img > div > h2{
+  color: #fff;
+}
+.container-img > div > p{
+  color: #fff;
+}

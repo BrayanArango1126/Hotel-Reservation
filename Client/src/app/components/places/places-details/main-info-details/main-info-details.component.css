@@ -1,0 +1,19 @@
+.container-image-details{
+  width: 100%;
+  height: 700px;
+  display: flex;
+  padding: 0 !important;
+}
+.custom-size-container-img{
+  height: 33.33%;
+  border-radius: 8px;
+}
+.custom-size-container-img img{
+  border-radius: 8px;
+}
+.custom-container-img-border{
+  border-radius: 8px;
+}
+.custom-container-img-border img{
+  border-radius: 8px;
+}

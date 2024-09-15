@@ -1,0 +1,30 @@
+.row-custom {
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+}
+
+.column {
+  grid-column: span 3;
+  width: auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.column img {
+  width: 350px;
+  height: 100%;
+}
+
+.image-span-two {
+  grid-column: 1 / span 2;
+  grid-row: 1;
+}
+
+.image-single {
+  grid-column: 1;
+  grid-row: 2;
+
+}

@@ -1,0 +1,13 @@
+.example-card {
+  max-width: 45%;
+  
+}
+.img-border-custom{
+  border-radius: 50%;
+}
+.container-references{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
