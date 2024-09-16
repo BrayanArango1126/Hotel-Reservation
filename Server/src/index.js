@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
-
+import reservacionesRoutes from './routes/reservaciones.routes.js';
 
 //creamos el servidor
 const app = express();
@@ -19,7 +19,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
 //routes 
-
+app.use(reservacionesRoutes);
 
 //run server
 app.listen(app.get('port'), () => {

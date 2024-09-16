@@ -5,7 +5,7 @@ const conexion = createPool({
     port: '3306',
     user: 'root',
     password: '',
-    database: 'hotel_travel'
+    database: 'hoteles'
 });
 
 export default conexion;
