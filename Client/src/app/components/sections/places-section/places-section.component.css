@@ -3,6 +3,16 @@
 }
 
 .example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;
+}
+
+.text-title-custom{
+  font-size: 1.5em;
+  font-weight: 500;
+  color: #535353;
+}
+.title-main-section{
+  font-size: 2.0em;
+  font-weight: 600;
+  color: #535353;
 }

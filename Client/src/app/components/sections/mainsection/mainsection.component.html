@@ -2,14 +2,53 @@
   <div class="container">
     <div class="row">
       <div class="col-12 position-relative">
-        <div class="search-bar shadow-custom w-50 position-absolute z-1">
-          <div class="w-100 p-2">
-            <div class="input-group  d-flex justify-content-evenly align-items-center">
-              <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscar"
-                aria-describedby="button-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-custom" type="button" id="button-addon2">Buscar</button>
-              </div>
+        <div class="search-bar shadow-custom w-75 position-absolute z-1">
+          <div class="w-100 p-1">
+            <div class="w-100">
+              <form action="" class="w-100 d-flex justify-content-evenly align-items-center">
+                <div class="h-100">
+                  <mat-form-field>
+                    <mat-label>País</mat-label>
+                    <mat-select>
+                      <mat-option value="one">First option</mat-option>
+                      <mat-option value="two">Second option</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <mat-form-field class="example-form-field">
+                  <mat-label>Fecha Inicio</mat-label>
+                  <input matInput [matDatepicker]="fecha_inicio" />
+                  <mat-datepicker-toggle matIconSuffix [for]="fecha_inicio"></mat-datepicker-toggle>
+                  <mat-datepicker #fecha_inicio>
+                    <mat-datepicker-actions>
+                      <button mat-button matDatepickerCancel>Cancel</button>
+                      <button mat-raised-button matDatepickerApply>Apply</button>
+                    </mat-datepicker-actions>
+                  </mat-datepicker>
+                </mat-form-field>
+                <mat-form-field class="example-form-field">
+                  <mat-label>Fecha Fin</mat-label>
+                  <input matInput [matDatepicker]="fecha_fin" />
+                  <mat-datepicker-toggle matIconSuffix [for]="fecha_fin"></mat-datepicker-toggle>
+                  <mat-datepicker #fecha_fin>
+                    <mat-datepicker-actions>
+                      <button mat-button matDatepickerCancel>Cancel</button>
+                      <button mat-raised-button matDatepickerApply>Apply</button>
+                    </mat-datepicker-actions>
+                  </mat-datepicker>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                  <mat-label>Personas</mat-label>
+                  <input matInput type="number" placeholder="1">
+                </mat-form-field>
+                <div class="input-group-append">
+                  <button class="btn btn-custom" type="submit" id="button-addon2">
+                    <mat-icon class="d-flex align-items-center">
+                      search
+                    </mat-icon>
+                  </button>
+                </div> 
+              </form>
             </div>
           </div>
         </div>

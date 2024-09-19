@@ -9,6 +9,8 @@ import habitacionesRoutes from './routes/habitaciones.routes.js';
 import usuariosRoutes from './routes/usuarios.routes.js';
 import reservacionesRoutes from './routes/reservaciones.routes.js';
 import fotosRoutes from './routes/fotos.routes.js';
+import ciudadesRoutes from './routes/ciudades.routes.js';
+import categoriasHotelesRoutes from './routes/categorias_hoteles.routes.js';
 
 
 //creamos el servidor
@@ -35,8 +37,8 @@ app.use('/api', habitacionesRoutes);
 app.use('/api', usuariosRoutes);
 app.use('/api', reservacionesRoutes);
 app.use('/api', fotosRoutes);
-
-
+app.use('/api', ciudadesRoutes);
+app.use('/api', categoriasHotelesRoutes);
 
 
 //run server

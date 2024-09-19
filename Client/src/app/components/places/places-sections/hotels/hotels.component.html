@@ -1,4 +1,4 @@
-<div class="w-100 px-5 mx-auto">
+<!-- <div class="w-100 px-5 mx-auto">
   <div class="row">
     <div>
       <h3 class="">HOTELES</h3>
@@ -89,5 +89,51 @@
         </div>
       </div>
     </div>
+  </div>
+</div> -->
+
+
+<div class="w-100 px-5 mx-auto">
+  <div class="row">
+    <div>
+      <h3 class="title-hoteles">Habitaciones de hoteles en España</h3>
+    </div>
+    <div *ngFor="let hotel of ListHotels; let i = index">
+      <div class="col-12 my-2">
+      <div class="container-hotel w-100 d-flex justify-content-between">
+        <div class="w-50 he-100">
+          <img src="img/hotel1.png" width="100%" height="100%" alt="">
+        </div>
+        <div class="container-info-hotel w-50 he-100">
+          <div class="d-flex he-100 justify-content-evenly">
+            <div class="w-75 he-100 d-flex flex-column justify-content-between">   
+              <div>
+                <span>Hotel en {{hotel.pais}}</span>
+                <h3 class="title-custom-size">{{hotel.nombre}}</h3>
+                <hr>
+                <p>{{hotel.descripcion}}</p>
+              </div>
+              <div class="w-100 d-flex justify-content-start">
+                <div class="w-100 d-flex align-items-center">
+                  <mat-icon class="star-custom">hotel_class</mat-icon>
+                  <span class="custom-bold">{{hotel.estrellas}}</span>
+                  <span class="mx-2 custom-parrafo">(300 visitantes)</span>
+                </div>
+              </div>
+            </div>
+            <div class="w-25 he-100 container-prices d-flex flex-column justify-content-between">
+              <div class="w-100 text-end">
+                <mat-icon class="material-symbols-outlined">favorite</mat-icon>
+              </div>
+              <div class="w-100 text-end">
+                <p class="custom-parrafo">$240/Total</p>
+                <span><b>$60</b>/Noche</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
   </div>
 </div>

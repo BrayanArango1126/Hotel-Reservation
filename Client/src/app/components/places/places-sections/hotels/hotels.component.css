@@ -5,7 +5,7 @@
   width: 40%;
 }
 .container-hotel{
-  height: 300px;
+  height: 250px;
 }
 .container-info-hotel{
   height: 100%;
@@ -17,4 +17,30 @@
 
 .he-100{
   height: 100%;
+}
+.star-custom{
+  color: #9800cb;
+  margin-right: 4% ;
+}
+
+.material-symbols-outlined{
+  color: #a200ffb1;
+}
+.title-custom-size{
+  font-size: 1.8em;
+  font-weight: 500;
+}
+.custom-bold{
+  font-weight: 900;
+}
+
+.title-hoteles{
+  font-size: 1.5em;
+  font-weight: 400;
+  color: #535353;
+}
+.custom-parrafo{
+  font-size: 1em;
+  font-weight: 300;
+  color: #535353;
 }

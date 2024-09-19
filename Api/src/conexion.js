@@ -5,7 +5,8 @@ const conexionApi = createPool({
   port: '3306',
   user: 'root',
   password: '',
-  database: 'hotel_travel'
+  database: 'api_hoteles'
+  // database: 'hotel_travel'
 });
 
 export default conexionApi;
