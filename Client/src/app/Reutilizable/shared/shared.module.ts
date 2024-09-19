@@ -26,6 +26,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar'
 import {MatTooltipModule} from '@angular/material/tooltip'
 import {MatAutocompleteModule} from '@angular/material/autocomplete'
 import {MatDatepickerModule} from '@angular/material/datepicker'
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import {MatNativeDateModule} from '@angular/material/core'
 
@@ -61,6 +62,7 @@ import {MatNativeDateModule} from '@angular/material/core'
     MatDatepickerModule,
     MatNativeDateModule,
     // MomentDateModule,
+    NgxPaginationModule,
   ],
   providers:[
     MatDatepickerModule,

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Sesion } from '../Interfaces/sesion';
+// import { Sesion } from '../Interfaces/sesion';
 
 
 @Injectable({
@@ -18,9 +18,9 @@ export class UtilidadService {
     })
   }
 
-  GuardarSesionUsuario(usuarioSesion:Sesion){
-    localStorage.setItem("usuario", JSON.stringify(usuarioSesion));
-  }
+  // GuardarSesionUsuario(usuarioSesion:Sesion){
+  //   localStorage.setItem("usuario", JSON.stringify(usuarioSesion));
+  // }
 
   ObtenerSesionUsuario(){
     const dataCadena = localStorage.getItem("usuario");

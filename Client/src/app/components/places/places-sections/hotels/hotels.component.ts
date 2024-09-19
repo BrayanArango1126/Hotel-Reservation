@@ -9,6 +9,7 @@ import Hotel from '../../../../interfaces/hotel';
 })
 export class HotelsComponent implements OnInit{
 
+  p: number = 1;
   ListHotels: Hotel[] = [];
   constructor() {
     
@@ -16,6 +17,11 @@ export class HotelsComponent implements OnInit{
 
   ngOnInit(): void {
     this.getHotelsList();
+    this.getMatRandomNumber();
+  }
+
+  getMatRandomNumber(){
+    return Math.floor(Math.random() * 401) + 100;
   }
 
   async getHotelsList() {

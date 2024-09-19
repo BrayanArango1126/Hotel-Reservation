@@ -10,4 +10,6 @@ export default interface Hotel {
   estrellas: number;
   latitud: number;
   longitud: number;
+  url: string;
+  precioMinimo: number;
 }

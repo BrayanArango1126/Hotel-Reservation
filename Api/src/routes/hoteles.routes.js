@@ -21,14 +21,21 @@ router.get('/hoteles/list', async (req, res) => {
       'Ciud.longitud AS longitudCiudad, ' +
       'Pais.pais, ' +
       'Pais.latitud AS latitudPais, ' +
-      'Pais.longitud AS longitudPais ' +
+      'Pais.longitud AS longitudPais, ' +
+      'Fo.url, ' +
+      'MIN(Hab.precio) AS precioMinimo ' +
     ' FROM hoteles AS Hot ' +
     ' INNER JOIN Ciudades AS Ciud ' +
     ' ON Hot.idCiudad = Ciud.idCiudad ' +
     ' INNER JOIN Paises AS Pais ' +
-    ' ON Ciud.idPais = Pais.idPais' +
-    ' INNER JOIN categorias_hoteles AS Cat_Hot' +
-    ' ON Cat_Hot.idCategoriaHotel = Hot.idCategoriaHotel;');
+    ' ON Ciud.idPais = Pais.idPais ' +
+    ' INNER JOIN categorias_hoteles AS Cat_Hot ' +
+    ' ON Cat_Hot.idCategoriaHotel = Hot.idCategoriaHotel ' +
+    ' LEFT JOIN Fotos AS Fo ' +
+    ' ON Fo.idHotel = Hot.idHotel ' +
+    ' LEFT JOIN Habitaciones AS Hab ' +
+    ' ON Hab.idHotel = Hot.idHotel ' +
+    ' GROUP BY Hot.idhotel;');
     res.json(hoteles);
   } catch (err) {
     res.status(500).json({message: err.message});

@@ -1,0 +1,53 @@
+<div class="w-100 px-5 mx-auto">
+  <div class="row">
+    <div>
+      <h3 class="title-hoteles">Habitaciones de algunos Hoteles</h3>
+    </div>
+    <div *ngFor="let habitacion of listRooms | paginate: { itemsPerPage: 10, currentPage: p }">
+      <div class="col-12 my-2">
+        <div class="container-hotel w-100 d-flex justify-content-between">
+          <div class="w-50 he-100 ">
+            <img src="{{habitacion.url}}"  width="100%" height="100%" class="custom-image-hotel" alt="habitacion en {{habitacion.nombre}}">
+          </div>
+          <div class="container-info-hotel w-50 he-100">
+            <div class="d-flex he-100 justify-content-evenly">
+              <div class="w-75 he-100 d-flex flex-column justify-content-between">   
+                <div>
+                  <span>Habitación de {{habitacion.nombreHotel}}</span>
+                  <h3 class="title-custom-size">{{habitacion.nombre}}</h3>
+                  <hr>
+                  <p class="custom-parrafo-descripcion">{{habitacion.descripcion}}</p>
+                </div>
+                <div class="w-100 d-flex justify-content-start">
+                  <div class="w-100 d-flex align-items-center">
+                    <mat-icon class="star-custom">hotel_class</mat-icon>
+                    <span class="custom-bold">{{habitacion.calificacion}}</span>
+                    <span class="mx-2 custom-parrafo" >(300 visitantes)</span>
+                  </div>
+                </div>
+              </div>
+              <div class="w-25 he-100 container-prices d-flex flex-column justify-content-between">
+                <div class="w-100 text-end">
+                  <mat-icon class="material-symbols-outlined">favorite</mat-icon>
+                </div>
+                <div class="w-100 text-end">
+                  <p class="custom-parrafo">Precio</p>
+                  <span><b>${{habitacion.precio}}</b>/Noche</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+    </div>
+    <div class="w-100 d-flex justify-content-center">
+      <pagination-controls
+        previousLabel="Anterior"
+        nextLabel="Siguiente" 
+        (pageChange)="p = $event"
+      ></pagination-controls>
+    </div>
+  </div>
+</div>
+

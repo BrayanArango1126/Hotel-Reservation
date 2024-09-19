@@ -6,6 +6,7 @@ import { PlacesComponent } from './components/places/places.component';
 import { PlacesDetailsComponent } from './components/places/places-details/places-details.component';
 import { ReservationsComponent } from './components/reservations/reservations.component';
 import { ConfirmationReservationComponent } from './components/confirmation-reservation/confirmation-reservation.component';
+import { RoomsComponent } from './components/rooms/rooms.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent, pathMatch:"full"},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path:'places/details',component:PlacesDetailsComponent, pathMatch:"full"},
   {path:'places/reservations',component:ReservationsComponent, pathMatch:"full"},
   {path:'places/confirmation-reservation',component:ConfirmationReservationComponent, pathMatch:"full"},
+  {path:'rooms',component:RoomsComponent, pathMatch:"full"},
   // {path:'users',component:UsersComponent, pathMatch:"full"},
   {path:'users',loadChildren: () => import("./components/users/users.module").then(m => m.UsersModule)}, //esta logica e spara traer todas las  paginas
   //{path:'pages',loadChildren: () => import("./Components/layout/layout.module").then(m => m.LayoutModule)}, //esta logica e spara traer todas las  paginas

@@ -34,6 +34,9 @@ import { ConfirmationReservationComponent } from './components/confirmation-rese
 import { CardConfirmationReservationComponent } from './components/confirmation-reservation/card-confirmation-reservation/card-confirmation-reservation.component';
 import { SidenavUserComponent } from './components/users/sidenav-user/sidenav-user.component';
 import { SharedModule } from './Reutilizable/shared/shared.module';
+import { RoomsComponent } from './components/rooms/rooms.component';
+import { ListRoomsComponent } from './components/rooms/room-section/list-rooms/list-rooms.component';
+import { FilterRoomsComponent } from './components/rooms/room-section/filter-rooms/filter-rooms.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,6 +66,9 @@ import { SharedModule } from './Reutilizable/shared/shared.module';
     ConfirmationReservationComponent,
     CardConfirmationReservationComponent,
     SidenavUserComponent,
+    RoomsComponent,
+    ListRoomsComponent,
+    FilterRoomsComponent,
   ],
   imports: [
     BrowserModule,
