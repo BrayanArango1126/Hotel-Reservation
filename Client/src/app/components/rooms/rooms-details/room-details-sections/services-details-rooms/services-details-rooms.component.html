@@ -1,0 +1,47 @@
+<div class="row">
+  <h3>Servicios</h3>
+  <!-- <div class="w-100 ">
+    <ul class="container-custom-size-services">
+      <li class="d-flex align-items-center">
+        <mat-icon>self_improvement</mat-icon>
+        <span class="mb-0 mx-2">Cocina</span>
+      </li>
+      <li class="d-flex align-items-center">
+        <mat-icon>pool</mat-icon>
+        <span class="mb-0 mx-2">Television</span>
+      </li>
+      <li class="d-flex align-items-center">
+        <mat-icon>air_aconditionation</mat-icon>
+        <span class="mb-0 mx-2">Aire acondicionado</span>
+      </li>
+      <li class="d-flex align-items-center">
+        <mat-icon>wifi</mat-icon>
+        <span class="mb-0 mx-2">Wifi</span>
+      </li>
+      <li class="d-flex align-items-center">
+        <mat-icon>medical_services</mat-icon>
+        <span class="mb-0 mx-2">Kit de primeros auxilios</span>
+      </li>
+      <li class="d-flex align-items-center">
+        <mat-icon>coffee</mat-icon>
+        <span class="mb-0 mx-2">Café</span>
+      </li>
+      <li class="d-flex align-items-center">
+        <mat-icon>pedal_bike</mat-icon>
+        <span class="mb-0 mx-2">Renta de bicicletas</span>
+      </li>
+    </ul>
+  </div> -->
+
+  <div class="w-100 ">
+    <ul class="container-custom-size-services">
+      <li *ngFor="let ser of listServices" class="d-flex align-items-center">
+        <mat-icon>{{ser.icon}}</mat-icon>
+        <span class="mb-0 mx-2">{{ser.servicio}}</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+

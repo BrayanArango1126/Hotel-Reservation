@@ -1,0 +1,66 @@
+<div class="row w-100">
+  <div class="col-12 my-2">
+    <div class="card-custom-reservation">
+      <div class="container-hotel w-100 d-flex justify-content-between">
+        <div class="w-40 he-100">
+          <img src="{{habitacion.url}}" class="custom-image" alt="habitacion de hotel {{habitacion.nombre }}">
+        </div>
+        <div class="container-info-hotel w-60 he-100">
+          <div class="px-3 he-100">
+            <div class="w-75 he-100 container-info-hotel-reservation">   
+              <div>
+                <h6 class="custom-title-habitacion">{{habitacion.nombre}}</h6>
+                <span><b>Habitación para {{habitacion.capacidad}} personas</b></span>
+                <p class="custom-parrafo-descripcion">{{habitacion.descripcion}}</p>
+              </div>
+              <div class="d-flex align-items-center ">
+                <mat-icon class="custom-icon-purple">star</mat-icon>
+                <span class="mb-0">{{habitacion.calificacion}} (300 visitantes)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="my-3">
+        <h6 class="custom-title-reserva">
+          Detalles de la Reserva
+        </h6>
+        <div class="w-100">
+          <div class="w-100 d-flex justify-content-between">
+            <span>Fecha de salida</span>
+            <span>{{fechasReservadas.fechaInicio}}</span>
+          </div>
+          <div class="w-100 d-flex justify-content-between">
+            <span>Hora salida</span>
+            <span>{{fechasReservadas.horaInicio}}</span>
+          </div>
+          <div class="w-100 d-flex justify-content-between">
+            <span>Fecha de llegada</span>
+            <span>{{fechasReservadas.fechaFin}}</span>
+          </div>
+          <div class="w-100 d-flex justify-content-between">
+            <span>Hora llegada</span>
+            <span>{{fechasReservadas.horaFin}}</span>
+          </div>
+        </div>
+        <div class="w-100 p-3">
+          <div class="w-100 d-flex justify-content-between">
+            <span><b>${{habitacion.precio}} x {{fechasReservadas.cantidadDias}} Noches</b></span>
+            <span><b>${{habitacion.precio * fechasReservadas.cantidadDias}}</b></span>
+          </div>
+          <div class="w-100 d-flex justify-content-between">
+            <span><b>Descuento 20%</b></span>
+            <span><b>${{fechasReservadas.totalDescuento}}</b></span>
+          </div>
+          <hr>
+          <div class="w-100 d-flex justify-content-between">
+            <span class="custom-total">Total($Cop.)</span>
+            <span><b>${{fechasReservadas.total}}</b></span>
+        </div>
+      </div>
+      <div class="w-100 p-3 d-flex justify-content-center align-items-center">
+        <span class="custom-message-free-cancelation">Cancelación de la reserva gratis en las proximas 48 Horas </span>
+      </div>
+    </div>
+</div>
+

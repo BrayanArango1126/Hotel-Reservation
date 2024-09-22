@@ -20,6 +20,8 @@
     "@angular/platform-browser": "^18.0.0",
     "@angular/platform-browser-dynamic": "^18.0.0",
     "@angular/router": "^18.0.0",
+    "@mat-datetimepicker/core": "^14.0.0",
+    "@mat-datetimepicker/moment": "^14.0.0",
     "axios": "^1.7.7",
     "bootstrap": "^5.3.3",
     "ngx-pagination": "^6.0.3",

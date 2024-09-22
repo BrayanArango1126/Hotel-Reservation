@@ -1,0 +1,46 @@
+<div class="row w-100">
+  <div >
+    <h3>Confirmar Pago</h3>
+    <p>Para una mayor seguridad, llene correctamente los campos y asegure su disponibilidad para el viaje</p>
+    <form (ngSubmit)="onSubmit()">
+      <!-- <div class="mb-4">
+        <p>Pagar con</p>
+        <div class="d-flex justify-content-evenly">
+          <div class="form-check w-50">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+            <label class="form-check-label" for="exampleRadios1">
+              Tarjeta de crédito
+            </label>
+          </div>
+          <div class="form-check w-50">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <label class="form-check-label" for="exampleRadios2">
+              Paypal
+            </label>
+          </div>
+        </div>
+      </div> -->
+      <div class="form-group my-3">
+        <label for="cardNumber">Número de tarjeta</label>
+        <input type="text" class="form-control" id="cardNumber" placeholder="Número de tarjeta">
+      </div>
+      <div class="form-group my-3">
+        <label for="cardOwner">Nombre Propietario de la tarjeta</label>
+        <input type="text" class="form-control" id="cardOwner" placeholder="Nombre Propietario de tarjeta">
+      </div>
+      <div class="form-group my-3">
+        <label for="expirationDate">Fecha de expiración</label>
+        <input type="text" class="form-control" id="expirationDate" placeholder="Fecha de expiración">
+      </div>
+      <div class="form-group my-3">
+        <label for="cvv">CVV</label>
+        <input type="text" class="form-control" id="cvv" placeholder="CVV">
+      </div>
+      <hr>
+      <p class="my-2">Al dar click en continuar aceptas las reglas de propiedad, terminos y condiciones, regidos por la ley de COVID-19, cumpliento los requerimientos de salud.</p>
+      <button type="submit" class="btn btn-primary my-3 w-100">Confirmar y Pagar</button>
+
+    </form>
+  </div>
+</div>
+

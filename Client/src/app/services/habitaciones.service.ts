@@ -6,7 +6,10 @@ export const HabitacionesService = {
   async getHabitacionesList() {
     return axios.get(`${environment.api}/habitaciones/list`);
   },
-  async getHabitacionById(id: number) {
-    return axios.get(`${environment.endpoint}/habitaciones/edit/${id}`);
+  async getHabitacionById(idHabitacion: number) {
+    return axios.get(`${environment.api}/habitaciones/room/${idHabitacion}`);
+  },
+  async getHabitacionFotosById(idHabitacion: number) {
+    return axios.get(`${environment.api}/habitaciones/fotos/${idHabitacion}`);
   }
 };

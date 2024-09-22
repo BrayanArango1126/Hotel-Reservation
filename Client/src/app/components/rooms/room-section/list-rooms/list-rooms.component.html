@@ -5,9 +5,9 @@
     </div>
     <div *ngFor="let habitacion of listRooms | paginate: { itemsPerPage: 10, currentPage: p }">
       <div class="col-12 my-2">
-        <div class="container-hotel w-100 d-flex justify-content-between">
+        <div (click)="verDetalles(habitacion.idHabitacion)" class="custom-container-pointer container-hotel w-100 d-flex justify-content-between">
           <div class="w-50 he-100 ">
-            <img src="{{habitacion.url}}"  width="100%" height="100%" class="custom-image-hotel" alt="habitacion en {{habitacion.nombre}}">
+            <img src="{{habitacion.url}}" width="100%" height="100%" class="custom-image-hotel" alt="habitacion en {{habitacion.nombre}}">
           </div>
           <div class="container-info-hotel w-50 he-100">
             <div class="d-flex he-100 justify-content-evenly">

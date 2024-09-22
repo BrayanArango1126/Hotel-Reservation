@@ -1,0 +1,11 @@
+.container-custom-size-services{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 200px;
+}
+
+.container-custom-size-services li{
+  margin: 10px 0;
+}

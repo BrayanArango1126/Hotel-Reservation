@@ -1,1 +1,29 @@
-<p>login works!</p>
+<app-navbar></app-navbar>
+<div class="container w-100 hv-100">
+  <div class="row my-5 w-100 hv-100">
+    <div class="col-md-6 mx-auto my-5">
+      <div class="card card-body card-custom">
+        <h1 class="text-center mb-3"><i class="fas fa-user-plus"></i> Iniciar Sesión</h1>
+        <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+          <div class="form-group my-2 ">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Correo</mat-label>
+              <input matInput type="email" placeholder="Ejem: example@gmail.com" formControlName="correo" required>
+              <mat-icon matSuffix>mail</mat-icon>
+            </mat-form-field>
+          </div>
+          <div class="form-group my-2">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Contraseña</mat-label>
+              <input matInput type="password" placeholder="Ejem: Calle 16 sur" formControlName="contraseña" required>
+              <mat-icon matSuffix>lock</mat-icon>
+            </mat-form-field>
+          </div>
+          
+          <button type="submit" class="btn w-100 my-4 btn-primary btn-custom-register">Ingresar</button>
+        </form>
+        <p class="lead mt-4 w-100 text-center">¿No tienes una cuenta aún? <a routerLink="/register">Registrarse</a></p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,82 @@
+<div class="row w-100">
+  <div class="col-12 w-100">
+    <div class="card custom-card w-100">
+      <div class="card-body">
+        <h5 class="card-title custom-title-card">Reservación</h5>
+        <div class="d-flex justify-content-between align-items-center">
+          <p class="card-text mb-0">{{habitacion.precio}} /Noche</p>
+          <div class="d-flex align-items-center">
+            <mat-icon class="custom-icon-star">star</mat-icon>
+            <span class="mb-0">{{habitacion.calificacion}}</span>
+          </div>
+        </div>
+        <form [formGroup]="formReservar" class="my-3">
+          <div class="d-flex justify-content-between">
+            <mat-form-field appearance="outline" class="example-form-field w-60">
+              <mat-label>Fecha Inicio</mat-label>
+              <input [min]="minDate" matInput required="true" [matDatepicker]="fechaInicio" formControlName="fechaInicio" [(ngModel)]="fechaSeleccionada" (dateChange)="onDateChange($event)" />
+              <mat-datepicker-toggle matIconSuffix [for]="fechaInicio"></mat-datepicker-toggle>
+              <mat-datepicker #fechaInicio>
+                <mat-datepicker-actions>
+                  <button mat-button matDatepickerCancel>Cancelar</button>
+                  <button mat-raised-button matDatepickerApply>Aplicar</button>
+                </mat-datepicker-actions>
+              </mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="example-form-field w-30">
+              <mat-label>Hora</mat-label>
+              <input matInput type="time" required formControlName="horaInicio"/>
+            </mat-form-field>
+           
+          </div>
+          <div class="d-flex justify-content-between">
+            <mat-form-field appearance="outline" class="example-form-field w-60">
+              <mat-label>Fecha Fin</mat-label>
+              <input matInput [min]="minDateFechaFin" [matDatepicker]="fechaFin" required formControlName="fechaFin" [(ngModel)]="fechaSeleccionadaFin" (dateChange)="onDateChangeFin($event)"/>
+              <mat-datepicker-toggle matIconSuffix [for]="fechaFin"></mat-datepicker-toggle>
+              <mat-datepicker #fechaFin>
+                <mat-datepicker-actions>
+                  <button mat-button matDatepickerCancel>Cancelar</button>
+                  <button mat-raised-button matDatepickerApply>Aplicar</button>
+                </mat-datepicker-actions>
+              </mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="example-form-field w-30">
+              <mat-label>Hora</mat-label>
+              <input matInput type="time" required formControlName="horaFin"/>
+            </mat-form-field>
+          </div>
+
+          <mat-form-field appearance="outline" class="example-form-field w-100">
+            <mat-label>Cantidad Personas Permitidas</mat-label>
+            <input class="custom-color-input" matInput type="number" value="{{habitacion.capacidad}}" disabled=""/>
+          </mat-form-field>
+          <hr>
+
+          <div class="w-100">
+            <div class="d-flex justify-content-between align-items-center">
+              <p>${{habitacion.precio}} x {{cantidadDias}} noches</p>
+              <span>${{habitacion.precio * cantidadDias}}</span>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+              <p>Descuento 20%</p>
+              <span>${{totalDescuento}}</span>
+            </div>
+          </div>
+          <hr>
+          <div class="w-100">
+            <div class="d-flex justify-content-between align-items-center">
+              <p class="custom-text-bold">Total (Cop)</p>
+              <span>${{habitacion.precio * cantidadDias - totalDescuento}} </span>
+            </div>
+          </div>
+          <button [disabled]="formReservar.invalid" (click)="reservarHabitacion(habitacion.idHabitacion)" class="btn my-2 btn-custom-color btn-primary w-100">Reservar</button>
+          <p class="text-center custom-text-security">Pagos seguros con nosotros</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

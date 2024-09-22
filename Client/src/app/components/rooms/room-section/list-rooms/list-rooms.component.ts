@@ -3,6 +3,7 @@ import Hotel from '../../../../interfaces/hotel';
 import { HotelesService } from '../../../../services/hoteles.service';
 import Habitaciones from '../../../../interfaces/habitaciones';
 import { HabitacionesService } from '../../../../services/habitaciones.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-rooms',
@@ -15,13 +16,17 @@ export class ListRoomsComponent implements OnInit{
   ListHotels: Hotel[] = [];
 
   listRooms: Habitaciones[] = [];
-  constructor() {
+  constructor(private router:Router) {
     
   }
 
   ngOnInit(): void {
     this.getHotelsList();
     this.getRoomsList();
+  }
+
+  verDetalles(idHabitacion: number){
+    this.router.navigate([`/rooms/details/${idHabitacion}`]);
   }
 
   async getRoomsList() {

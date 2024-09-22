@@ -4,8 +4,12 @@ import { Router } from "express";
 const router = Router();
 
 router.get('/ciudades/list', async (req, res) => {    
-  const [ciudades] = await conexionApi.query('SELECT * FROM ciudades');
-  res.json(ciudades);
+  try{
+    const [ciudades] = await conexionApi.query('SELECT * FROM Ciudades');
+    res.status(200).json(ciudades);
+  }catch(err){
+    res.status(500).json({message: err.message});
+  }
 });
 
 router.get('/ciudades/list/better', async (req, res) => {    

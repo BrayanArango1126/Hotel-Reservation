@@ -6,11 +6,12 @@ import resenasRoutes from './routes/resenas.routes.js';
 import actividadesRoutes from './routes/actividades.routes.js';
 import serviciosRoutes from './routes/servicios.routes.js';
 import habitacionesRoutes from './routes/habitaciones.routes.js';
-import usuariosRoutes from './routes/usuarios.routes.js';
 import reservacionesRoutes from './routes/reservaciones.routes.js';
 import fotosRoutes from './routes/fotos.routes.js';
 import ciudadesRoutes from './routes/ciudades.routes.js';
 import categoriasHotelesRoutes from './routes/categorias_hoteles.routes.js';
+import usuariosRoutes from './routes/usuarios.routes.js';
+import generosRoutes from './routes/generos.routes.js';
 
 
 //creamos el servidor
@@ -34,13 +35,12 @@ app.use('/api', resenasRoutes);
 app.use('/api', actividadesRoutes);
 app.use('/api', serviciosRoutes);
 app.use('/api', habitacionesRoutes);
-app.use('/api', usuariosRoutes);
 app.use('/api', reservacionesRoutes);
 app.use('/api', fotosRoutes);
 app.use('/api', ciudadesRoutes);
 app.use('/api', categoriasHotelesRoutes);
-
-
+app.use('/api', usuariosRoutes);
+app.use('/api', generosRoutes);
 //run server
 app.listen(app.get('port'), () => {
   console.log('El puerto que se está escuchando es', app.get('port'));

@@ -37,6 +37,21 @@ import { SharedModule } from './Reutilizable/shared/shared.module';
 import { RoomsComponent } from './components/rooms/rooms.component';
 import { ListRoomsComponent } from './components/rooms/room-section/list-rooms/list-rooms.component';
 import { FilterRoomsComponent } from './components/rooms/room-section/filter-rooms/filter-rooms.component';
+import { RoomsDetailsComponent } from './components/rooms/rooms-details/rooms-details.component';
+import { MainSectionDetailsComponent } from './components/rooms/rooms-details/room-details-sections/main-section-details/main-section-details.component';
+import { CardReserveRoomsComponent } from './components/rooms/rooms-details/room-details-sections/card-reserve-rooms/card-reserve-rooms.component';
+import { ServicesDetailsRoomsComponent } from './components/rooms/rooms-details/room-details-sections/services-details-rooms/services-details-rooms.component';
+import { RoomsReviewsComponent } from './components/rooms/rooms-details/room-details-sections/rooms-reviews/rooms-reviews.component';
+import { DescriptionDetailsRoomComponent } from './components/rooms/rooms-details/room-details-sections/description-details-room/description-details-room.component';
+import { RegisterComponent } from './components/register/register.component';
+import { ReservationRoomComponent } from './components/reservations/reservation-room/reservation-room.component';
+import { ReservationRoomCardComponent } from './components/reservations/reservation-room/reservation-room-card/reservation-room-card.component';
+import { ReservationRoomCreditComponent } from './components/reservations/reservation-room/reservation-room-credit/reservation-room-credit.component';
+
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,6 +84,17 @@ import { FilterRoomsComponent } from './components/rooms/room-section/filter-roo
     RoomsComponent,
     ListRoomsComponent,
     FilterRoomsComponent,
+    RoomsDetailsComponent,
+    RoomsDetailsComponent,
+    MainSectionDetailsComponent,
+    CardReserveRoomsComponent,
+    ServicesDetailsRoomsComponent,
+    RoomsReviewsComponent,
+    DescriptionDetailsRoomComponent,
+    RegisterComponent,
+    ReservationRoomComponent,
+    ReservationRoomCardComponent,
+    ReservationRoomCreditComponent,
   ],
   imports: [
     BrowserModule,

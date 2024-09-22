@@ -1,0 +1,56 @@
+.custom-card{
+  border-radius: 8px;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s;
+  border: none;
+  padding: 15px;
+}
+
+.custom-icon-star{
+  font-size: 1.5em;
+  color: #580084;
+}
+.w-90{
+  width: 90%;
+}
+.w-45{
+  width: 45%;
+}
+
+.w-60{
+  width: 60%;
+}
+.w-30{
+  width: 30%;
+}
+.custom-text-bold{
+  color: #000;
+  font-weight: 600;
+  font-size: 1.2em;
+}
+.custom-text-security{
+  color: #000000;
+  font-weight: 200;
+  font-size: 0.8em;
+}
+
+.btn-custom-color{
+  background-color: #580084;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.btn-custom-color:hover{
+  background-color: #7402ad;
+}
+.btn-custom-color:active{
+  background-color: #f0d9ef;
+}
+.custom-title-card{
+  font-size: 1.5em;
+  font-weight: 700;
+  color: #626161;
+}
