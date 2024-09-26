@@ -15,14 +15,14 @@
           <div class="form-group my-2">
             <mat-form-field appearance="outline" class="w-100">
               <mat-label>Contraseña</mat-label>
-              <input matInput type="password" placeholder="Ejem: Calle 16 sur" formControlName="contraseña" required>
+              <input matInput type="password" formControlName="contraseña" required>
               <mat-icon matSuffix>lock</mat-icon>
             </mat-form-field>
           </div>
           
           <button type="submit" class="btn w-100 my-4 btn-primary btn-custom-register">Ingresar</button>
         </form>
-        <p class="lead mt-4 w-100 text-center">¿No tienes una cuenta aún? <a routerLink="/register">Registrarse</a></p>
+        <p class="lead mt-4 w-100 text-center">¿No tienes una cuenta aún? <a routerLink="/register" class="custom-register">Registrarse</a></p>
       </div>
     </div>
   </div>

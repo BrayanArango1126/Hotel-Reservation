@@ -29,3 +29,12 @@
 .btn-custom-register:active{
   background-color: #f0d9ef;
 }
+.custom-register{
+  font-size: 1em;
+  font-weight: 500;
+  color: #9302db;
+  text-decoration: none;
+}
+.custom-register:hover{
+  color: #580084;
+}

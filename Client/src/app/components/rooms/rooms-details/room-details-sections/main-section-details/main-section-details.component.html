@@ -11,7 +11,7 @@
           <p class="mx-2 mb-0 black-text">{{habitacion.nombreHotel}}</p>
         </div>
         <div class="d-flex w-50 justify-content-end">
-          <mat-icon class="custom-icon-favorite">favorite</mat-icon>
+          <mat-icon class="custom-icon-favorite" (click)="saveFavorite(habitacion.idHabitacion)">favorite</mat-icon>
         </div>
       </div>
     </div>
