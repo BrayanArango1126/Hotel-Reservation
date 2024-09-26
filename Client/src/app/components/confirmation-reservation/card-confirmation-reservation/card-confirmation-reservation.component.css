@@ -11,3 +11,12 @@
     height: 200px;
     border-radius: 15px;
 }
+.custom-icon-calendar{
+    color: #f400bb;
+}
+.custom-icon-timer{
+    color: #00a3f4;
+}
+.custom-icon-map{
+    color: #00f425;
+}
