@@ -20,5 +20,11 @@ export const HabitacionesService = {
   },
   async getHabitacionesByHotel(idHotel: number) {
     return axios.get(`${environment.api}/habitaciones/list/hotel/${idHotel}`);
+  },
+  async getFavoriteHabitacionesByUser(idUsuario: number) {
+    return axios.get(`${environment.api}/habitaciones/list/favorite/${idUsuario}`);
+  },
+  async addHabitacionFavorite(idUsuario: number, idHabitacion: number) {
+    return axios.post(`${environment.api}/habitaciones/saveFavorite`, {idHabitacion, idUsuario});
   }
 };

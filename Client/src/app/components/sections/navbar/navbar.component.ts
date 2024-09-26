@@ -10,6 +10,8 @@ import { UsuariosService } from '../../../services/usuarios.service';
 })
 export class NavbarComponent implements OnInit {
 
+  idUsuario: number = 0;
+
   route = inject(Router);
   usuario: Users = {
     idUsuario: 0,
@@ -34,6 +36,7 @@ export class NavbarComponent implements OnInit {
     if(localStorage.getItem('token_sesion')){
       this.userLogin = true;
       this.getUsuarioById();
+      this.idUsuario = Number(localStorage.getItem('idUsuario'));
     }else{
       this.userLogin = false;
     }
@@ -42,6 +45,7 @@ export class NavbarComponent implements OnInit {
   logOutSesion(){
     localStorage.removeItem('token_sesion');
     localStorage.removeItem('idUsuario');
+    this.idUsuario = 0;
     this.userLogin = false;
     this.route.navigate(['/home']);
   }
@@ -58,6 +62,15 @@ export class NavbarComponent implements OnInit {
       }
     }catch(error){
       console.error(error);
+    }
+  }
+
+  irAFavoritos(){
+    if(this.idUsuario == 0){
+      alert('Debes iniciar sesion para ver tus favoritos');
+      this.route.navigate(['/login']);
+    }else{
+      this.route.navigate([`/favorites/${this.idUsuario}`]);
     }
   }
 }

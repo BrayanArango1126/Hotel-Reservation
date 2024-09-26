@@ -20,7 +20,6 @@ export class HotelsComponent implements OnInit{
   ngOnInit(): void {
     // this.getHotelsList();
     this.filtroService.filtros$.subscribe(filtros => {
-      console.log(filtros);
       this.getHotelsFilterList(filtros);
     })
   }

@@ -51,6 +51,8 @@ import { MapComponent } from './components/map/map.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { MapPruebaComponent } from './components/map-prueba/map-prueba.component';
 import { ActividadesComponent } from './components/places/places-details/actividades/actividades.component';
+import { FavoritesComponent } from './components/favorites/favorites.component';
+import { FavoritesRoomsComponent } from './components/favorites/favorites-rooms/favorites-rooms.component';
 
 
 
@@ -101,6 +103,8 @@ import { ActividadesComponent } from './components/places/places-details/activid
     MapComponent,
     MapPruebaComponent,
     ActividadesComponent,
+    FavoritesComponent,
+    FavoritesRoomsComponent,
   ],
   imports: [
     BrowserModule,

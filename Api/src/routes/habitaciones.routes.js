@@ -121,78 +121,6 @@ router.get('/habitaciones/list', async (req, res) => {
   }
 });
 
-router.get('/habitaciones/list/precio', async (req, res) => {
-  try {
-    const precioMin = Number(req.query.precioMin);
-    const precioMax = Number(req.query.precioMax);
-
-    if(precioMin === undefined){
-      precioMin = 0;
-    }else if(precioMax === undefined){
-      precioMax = 10000000;
-    }
-    const [hoteles] = await conexionApi.query('SELECT ' +
-      ' Hab.idHabitacion, ' +
-      ' Hab.idHotel, ' +
-      ' Hab.nombre,  ' +
-      ' Hab.descripcion,  ' +
-      ' Hab.capacidad,  ' +
-      ' Hab.disponibilidad, ' +
-      ' Hab.cantidadCamas,  ' +
-      ' Hab.calificacion,  ' +
-      ' Hab.cantidadBanos, ' +
-      ' Hab.tipoCama,  ' +
-      ' Hab.cantidadHabitaciones, ' +
-      ' Hab.hayCocina, ' +
-      ' Hab.precio, ' +
-      ' Hot.nombre AS nombreHotel, ' +
-      ' Fo.url ' +
-    ' FROM habitaciones AS Hab ' +
-    ' LEFT JOIN Fotos AS Fo ' +
-    ' 	ON Fo.idHabitacion = Hab.idHabitacion ' +
-    ' LEFT JOIN Hoteles AS Hot ' +
-    ' 	ON Hab.idHotel = Hot.idHotel ' +
-    ' WHERE Hab.precio > ? AND Hab.precio < ? ' +
-    ' GROUP BY Hab.idHabitacion ;', [precioMin, precioMax]);
-    res.status(200).json(hoteles);
-  } catch (err) {
-    res.status(500).json({message: err.message});
-  }
-});
-
-router.get('/habitaciones/list/categoria_hotel', async (req, res) => {
-  try {
-    const idCategoria = req.query.idCategoriaHotel;
-
-    const [habitaciones] = await conexionApi.query('SELECT ' +
-      ' Hab.idHabitacion, ' +
-      ' Hab.idHotel, ' +
-      ' Hab.nombre,  ' +
-      ' Hab.descripcion,  ' +
-      ' Hab.capacidad,  ' +
-      ' Hab.disponibilidad, ' +
-      ' Hab.cantidadCamas,  ' +
-      ' Hab.calificacion,  ' +
-      ' Hab.cantidadBanos, ' +
-      ' Hab.tipoCama,  ' +
-      ' Hab.cantidadHabitaciones, ' +
-      ' Hab.hayCocina, ' +
-      ' Hab.precio, ' +
-      ' Hot.nombre AS nombreHotel, ' +
-      ' Fo.url ' +
-    ' FROM habitaciones AS Hab ' +
-    ' LEFT JOIN Fotos AS Fo ' +
-    ' 	ON Fo.idHabitacion = Hab.idHabitacion ' +
-    ' LEFT JOIN Hoteles AS Hot ' +
-    ' 	ON Hab.idHotel = Hot.idHotel ' +
-    ' WHERE Hot.idCategoriaHotel ' +
-    ' GROUP BY Hab.idHabitacion ;', [idCategoria]);
-    res.status(200).json(habitaciones);
-  } catch (err) {
-    res.status(500).json({message: err.message});
-  }
-});
-
 router.get('/habitaciones/list/hotel/:idHotel', async (req, res) => {
   try {
     const idHotel = req.params.idHotel;
@@ -296,6 +224,54 @@ router.get('/habitaciones/list/filtros', async (req, res) => {
     const [habitaciones] = await conexionApi.query(query, values);
     res.status(200).json(habitaciones);
   }catch(err){
+    res.status(500).json({message: err.message});
+  }
+});
+
+router.get('/habitaciones/list/favorite/:idUsuario', async (req, res) => {
+  try {
+    const idUsuario = req.params.idUsuario;
+    const [hoteles] = await conexionApi.query('SELECT ' +
+	    ' Hab.idHabitacion, ' +
+	    ' Hab.idHotel, ' +
+      ' Hab.nombre,  ' +
+      ' Hab.descripcion,  ' +
+      ' Hab.capacidad,  ' +
+      ' Hab.disponibilidad, ' +
+      ' Hab.cantidadCamas,  ' +
+      ' Hab.calificacion,  ' +
+      ' Hab.cantidadBanos, ' +
+      ' Hab.tipoCama,  ' +
+      ' Hab.cantidadHabitaciones, ' +
+      ' Hab.hayCocina, ' +
+      ' Hab.precio, ' +
+      ' Hot.nombre AS nombreHotel, ' +
+      ' Fo.url ' +
+    ' FROM habitaciones AS Hab ' +
+    ' LEFT JOIN Fotos AS Fo ' +
+    ' 	ON Fo.idHabitacion = Hab.idHabitacion ' +
+    ' LEFT JOIN Hoteles AS Hot ' +
+    ' 	ON Hab.idHotel = Hot.idHotel ' +
+    ' INNER JOIN Favoritos AS Fav ' +
+    '	ON Fav.idHabitacion = Hab.idHabitacion ' +
+    ' INNER JOIN Usuarios AS Usu ' +
+    '	ON Usu.idUsuario = Fav.idUsuario ' +
+    ' WHERE Usu.idUsuario = ? ' +
+    ' GROUP BY Hab.idHabitacion;', [idUsuario]);
+    res.status(200).json(hoteles);
+  } catch (err) {
+    res.status(500).json({message: err.message});
+  }
+});
+
+router.post('/habitaciones/saveFavorite', async (req, res) => {
+  try {
+    const idHabitacion = req.body.idHabitacion;
+    const idUsuario = req.body.idUsuario;
+    const newFavorito = {idHabitacion, idUsuario};
+    await conexionApi.query('INSERT INTO Favoritos SET ?;', [newFavorito]);
+    res.status(200).json({message: 'Favorito guardado'});
+  } catch (err) {
     res.status(500).json({message: err.message});
   }
 });

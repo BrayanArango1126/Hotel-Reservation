@@ -11,6 +11,7 @@ import { RoomsDetailsComponent } from './components/rooms/rooms-details/rooms-de
 import { RegisterComponent } from './components/register/register.component';
 import { loginGuard } from './guards/login.guard';
 import { ReservationRoomComponent } from './components/reservations/reservation-room/reservation-room.component';
+import { FavoritesComponent } from './components/favorites/favorites.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent, pathMatch:"full"},
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path:'places',component:PlacesComponent, pathMatch:"full"},
   {path:'places/details/:idHotel',component:PlacesDetailsComponent, pathMatch:"full"},
   {path:'places/reservations',component:ReservationsComponent, pathMatch:"full", canActivate:[loginGuard]},
+  {path:'favorites/:idUsuario',component:FavoritesComponent, pathMatch:"full", canActivate:[loginGuard]},
   {path:'rooms',component:RoomsComponent, pathMatch:"full"},
   {path:'rooms/details/:idHabitacion',component:RoomsDetailsComponent, pathMatch:"full"},
   {path:'rooms/reservations/:idHabitacion',component:ReservationRoomComponent, pathMatch:"full", canActivate:[loginGuard]},

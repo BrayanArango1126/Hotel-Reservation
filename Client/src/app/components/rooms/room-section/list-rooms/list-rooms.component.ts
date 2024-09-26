@@ -14,6 +14,8 @@ import { FiltroService } from '../../../../services/filtro.service';
 })
 export class ListRoomsComponent implements OnInit{
 
+  idUsuario: string | null = '';
+
   p: number = 1;
   ListHotels: Hotel[] = [];
 
@@ -23,10 +25,9 @@ export class ListRoomsComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    this.idUsuario = localStorage.getItem('idUsuario');
     this.getHotelsList();
-    // this.getRoomsList();
     this.filtroService.filtros$.subscribe(filtros => {
-      console.log(filtros);
       this.getRoomsListFilters(filtros);
     })
   }
@@ -65,6 +66,21 @@ export class ListRoomsComponent implements OnInit{
       }
     }catch{
       console.log('Error al obtener la lista de hoteles');
+    }
+  }
+
+  saveFavorite(idHabitacion: number){
+    if(this.idUsuario == '0' || this.idUsuario == null){
+      alert('Debes iniciar sesion para guardar la habitacion en favoritos');
+      this.router.navigate(['/login']);
+      return;
+    }else{
+      try{
+        const reponse = HabitacionesService.addHabitacionFavorite(Number(this.idUsuario), idHabitacion);
+        alert('Habitacion guardada en favoritos');
+      }catch{
+        console.log('Error al guardar la habitacion en favoritos');
+      }
     }
   }
 }
