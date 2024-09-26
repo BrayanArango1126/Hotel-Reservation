@@ -1,1 +1,46 @@
-<p>filter-rooms works!</p>
+<div class="w-100 px-5 mx-auto">
+  <div class="card custom-card-filter">
+    <div class="card-header custom-card-header">
+      <h3 class="mb-0">Filtros</h3>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="formFilter" (ngSubmit)="manejarEnvioFiltro()">
+        <div class="form-group">
+          <mat-form-field class="w-100 custom-select" appearance="outline">
+            <mat-label>Categoría Hotel</mat-label>
+            <mat-select formControlName="idCategoriaHotel">
+              <mat-option  *ngFor="let categoria of listCategoriaHotel" value="{{categoria.idCategoriaHotel}}">{{categoria.categoria}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Precio Mínimo</mat-label>
+            <input matInput placeholder="Ejemplo: 150000" formControlName="precioMin" >
+          </mat-form-field>
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Precio Máximo</mat-label>
+            <input matInput placeholder="Ejemplo: 300000" formControlName="precioMax">
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Calificación</mat-label>
+            <input matInput placeholder="Ejemplo: 4.32" formControlName="calificacion">
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field class="w-100 custom-select" appearance="outline">
+            <mat-label>Ciudad</mat-label>
+            <mat-select formControlName="idCiudad">
+              <mat-option  *ngFor="let ciudad of listCiudades" value="{{ciudad.idCiudad}}">{{ciudad.ciudad}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <button type="submit" class="w-100 btn-custom btn btn-primary">Buscar</button>
+        <button (click)="eliminarFiltros()" class="w-100 my-2 btn btn-danger">Eliminar Filtros</button>
+      </form>
+    </div>
+  </div>
+</div>
+

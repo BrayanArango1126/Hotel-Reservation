@@ -86,7 +86,12 @@ export class ReservationRoomCreditComponent implements OnInit{
   async createReseva(){
     try{
       const resultado = await ReservasService.createReserva(this.reserva).then((res) => {
-        console.log(res);
+        if(res.status === 200){
+          console.log(res);
+          this.router.navigate([`/rooms/confirmation-reservation/${Number(this.idHabitacion)}`], {state: {reservas: this.fechasReservadas}});
+        }else{
+          console.log('Error al crear la reserva');
+        }
       });
     }catch{
       console.log('Error al crear la reserva');

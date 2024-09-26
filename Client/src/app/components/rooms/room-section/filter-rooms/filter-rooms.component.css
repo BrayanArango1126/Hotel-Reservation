@@ -1,0 +1,28 @@
+.btn-custom{
+  background-color: #3a0067;
+  color: #ffffff;
+  transition: 0.3s;
+  border:none;
+}
+.btn-custom:hover{
+  background-color: #37027497;
+  color: #ffffff;
+}
+.custom-card-filter{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border: none; 
+}
+.custom-card-header{
+  background-color: #3a0067;
+  color: #ffffff;
+  border-radius: 15px 15px 0px 0px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}

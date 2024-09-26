@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HotelesService } from '../../../../services/hoteles.service';
 import Hotel from '../../../../interfaces/hotel';
+import { Router } from '@angular/router';
+import { FiltroHotelesService } from '../../../../services/filtroHoteles.service';
 
 @Component({
   selector: 'app-hotels',
@@ -11,27 +13,42 @@ export class HotelsComponent implements OnInit{
 
   p: number = 1;
   ListHotels: Hotel[] = [];
-  constructor() {
+  constructor(private router:Router, private filtroService:FiltroHotelesService) {
     
   }
 
   ngOnInit(): void {
-    this.getHotelsList();
-    this.getMatRandomNumber();
+    // this.getHotelsList();
+    this.filtroService.filtros$.subscribe(filtros => {
+      console.log(filtros);
+      this.getHotelsFilterList(filtros);
+    })
   }
 
-  getMatRandomNumber(){
-    return Math.floor(Math.random() * 401) + 100;
-  }
-
-  async getHotelsList() {
+  // async getHotelsList() {
+  //   try{
+  //     const resultado = await HotelesService.getHotelesList();
+  //     if(resultado.status === 200){
+  //       this.ListHotels = resultado.data;
+  //     }
+  //   }catch{
+  //     console.log('Error al obtener la lista de hoteles');
+  //   }
+  // }
+  
+  async getHotelsFilterList(filters: any) {
     try{
-      const resultado = await HotelesService.getHotelesList();
+      const resultado = await HotelesService.getHotelesFilterList(filters);
       if(resultado.status === 200){
         this.ListHotels = resultado.data;
       }
     }catch{
       console.log('Error al obtener la lista de hoteles');
     }
+  }
+
+
+  verDetallesHotel(idHotel: number){
+    this.router.navigate([`/places/details/${idHotel}`]);
   }
 }

@@ -47,7 +47,10 @@ import { RegisterComponent } from './components/register/register.component';
 import { ReservationRoomComponent } from './components/reservations/reservation-room/reservation-room.component';
 import { ReservationRoomCardComponent } from './components/reservations/reservation-room/reservation-room-card/reservation-room-card.component';
 import { ReservationRoomCreditComponent } from './components/reservations/reservation-room/reservation-room-credit/reservation-room-credit.component';
-
+import { MapComponent } from './components/map/map.component';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { MapPruebaComponent } from './components/map-prueba/map-prueba.component';
+import { ActividadesComponent } from './components/places/places-details/actividades/actividades.component';
 
 
 
@@ -95,6 +98,9 @@ import { ReservationRoomCreditComponent } from './components/reservations/reserv
     ReservationRoomComponent,
     ReservationRoomCardComponent,
     ReservationRoomCreditComponent,
+    MapComponent,
+    MapPruebaComponent,
+    ActividadesComponent,
   ],
   imports: [
     BrowserModule,
@@ -102,7 +108,8 @@ import { ReservationRoomCreditComponent } from './components/reservations/reserv
     MatButtonModule,
     MatCardModule,
     MatGridListModule,
-    SharedModule
+    SharedModule,
+    GoogleMapsModule,
   ],
   providers: [
     provideAnimationsAsync()

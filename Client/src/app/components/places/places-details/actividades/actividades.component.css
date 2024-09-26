@@ -1,0 +1,75 @@
+.w-60{
+  width: 60%;
+}
+.w-40{
+  width: 40%;
+}
+.container-hotel{
+  height: 250px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 10px 0px #0f0f0f3f;
+  transition-property: box-shadow;
+  transition-duration: 0.2s;
+}
+.container-info-hotel{
+  height: 100%;
+  padding: 10px 20px;
+}
+.container-prices{
+  height: 100%;
+}
+
+.he-100{
+  height: 100%;
+}
+.star-custom{
+  color: #9800cb;
+  margin-right: 4% ;
+}
+
+.material-symbols-outlined{
+  color: #b6b6b6b1;
+  cursor: pointer;
+  transition-property: color;
+  transition-duration: 0.2s;
+}
+.material-symbols-outlined:hover{
+  color: #9800cb;
+}
+.title-custom-size{
+  font-size: 1em;
+  font-weight: 500;
+}
+.custom-bold{
+  font-weight: 900;
+}
+
+.title-hoteles{
+  font-size: 2em;
+  font-weight: 600;
+  color: #535353;
+}
+.custom-parrafo{
+  font-size: 0.8em;
+  font-weight: 300;
+  color: #535353;
+}
+
+.custom-image-hotel{
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.custom-parrafo-descripcion{
+  font-size: 0.8em;
+  font-weight: 300;
+  color: #535353;
+  overflow-y: hidden;
+  max-height: 70px;
+}
+
+.custom-price{
+  font-size: 1.2em;
+  font-weight: 500;
+  color: #202020;
+}

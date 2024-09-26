@@ -1,37 +1,37 @@
-<div>
-  <div class="container">
-    <div class="row">
-      <div class="container-header-info-details">
-        <h2>Superior Family Room</h2>
-        <div class="d-flex justify-content-between align-items-center">
-          <div class="d-flex">
-            <span>stars</span>
-            <span>200 (visitantes)</span>
-            <p>Ciudad Tokyo</p>
-            <p>Japón</p>
-          </div>
-          <div class="d-flex">
-            <img src="" alt="💗"><span>Guardar</span>
-          </div>
+<div class="container my-5">
+  <div class="row">
+    <div class="container-header-info-details mb-3">
+      <h2 class="custom-title-room">{{hotelDetails[0].nombreHotel}}</h2>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="d-flex w-50 align-items-center">
+          <mat-icon class="m-0 custom-icon-star">star</mat-icon>
+          <span class=" mb-0 black-text">{{hotelDetails[0].estrellas}}</span>
+          <span class="custom-span mx-1 mb-0">(300 visitantes)</span>
+          <p class="mb-0 black-text">Hotel de la Ciudad de</p>
+          <p class="mx-2 mb-0 black-text">{{hotelDetails[0].ciudad}}</p>
+        </div>
+        <div class="d-flex w-50 justify-content-end">
+          <mat-icon class="custom-icon-favorite">favorite</mat-icon>
         </div>
       </div>
+    </div>
 
-      <div class="container-image-details">
-        <div class="w-75 h-100 custom-container-img-border p-2">
-          <img src="img/detail1.png" width="100%" height="100%" alt="hola">
+    <div class="container-image-details">
+      <div class="w-75 h-100 custom-container-img-border p-2">
+        <img src="{{hotelDetails[0].url}}" width="100%" height="100%" alt="Hotel de la ciudad de {{hotelDetails[0].ciudad}}">
+      </div>
+      <div class="w-25 d-flex flex-column h-100 py-2 pe-2">
+        <div class="w-100 custom-size-container-img pb-2">
+          <img src="{{hotelDetails[1].url}}" width="100%" height="100%" alt="Hotel de la ciudad de {{hotelDetails[0].ciudad}}">
         </div>
-        <div class="w-25 d-flex flex-column h-100 py-2 pe-2">
-          <div class="w-100 custom-size-container-img pb-2">
-            <img src="img/detail2.png" width="100%" height="100%" alt="hola">
-          </div>
-          <div class="w-100 custom-size-container-img pb-2">
-            <img src="img/detail3.png" width="100%" height="100%" alt="hola">
-          </div>
-          <div class="w-100 custom-size-container-img ">
-            <img src="img/detail4.png" width="100%" height="100%" alt="hola">
-          </div>
+        <div class="w-100 custom-size-container-img pb-2">
+          <img src="{{hotelDetails[2].url}}" width="100%" height="100%" alt="Hotel de la ciudad de {{hotelDetails[0].ciudad}}">
+        </div>
+        <div class="w-100 custom-size-container-img ">
+          <img src="{{hotelDetails[1].url}}" width="100%" height="100%" alt="Hotel de la ciudad de {{hotelDetails[0].ciudad}}">
         </div>
       </div>
     </div>
   </div>
 </div>
+

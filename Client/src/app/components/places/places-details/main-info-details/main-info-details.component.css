@@ -17,3 +17,28 @@
 .custom-container-img-border img{
   border-radius: 8px;
 }
+.custom-icon-star{
+  font-size: 1.5em;
+  color: #7402ad;
+}
+.custom-icon-favorite{
+  font-size: 1.5em;
+  color: #959595;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.custom-icon-favorite:hover{
+  color: #7402ad;
+}
+.custom-title-room{
+  font-size: 2.5em;
+  font-weight: 700;
+  color: #626161;
+}
+.custom-span{
+  color: #626161;
+}
+.black-text{
+  color: #000;
+  font-weight: 500;
+}

@@ -1,41 +1,25 @@
 <div class="container">
   <div class="col w-100">
-    <div class="my-4">
-      <img src="" alt="star">
-      <span>4.50</span>
-      <span>(300 visitantes)</span>
-    </div>
+    <h3 class="title-reseñas">Reseñas</h3>
     <div class="container-references">
-      <mat-card class="example-card" appearance="raised">
+      <mat-card class="example-card card-custom-resenas my-3" *ngFor="let resena of listResenas" appearance="raised">
         <mat-card-header>
-          <img mat-card-sm-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" class="img-border-custom">
+          <img mat-card-sm-image src="https://res.cloudinary.com/ds89ac7bw/image/upload/v1726944104/generic-male-avatar-icon-piiktqtfffyzulft_h9c6vu.png" class="img-border-custom">
           <mat-card-title-group class="mx-2 align-items-center">
-            <mat-card-title>Marcos Adbul</mat-card-title>
-            <mat-card-subtitle>Marzo 20</mat-card-subtitle>
+            <mat-card-title>{{resena.nombreUsuario}} {{resena.apellidoUsuario}}</mat-card-title>
+            <mat-card-subtitle>{{resena.fecha.toString()}}</mat-card-subtitle>
           </mat-card-title-group>
         </mat-card-header>
         <mat-card-content class="my-3">
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit est eaque tempore ad 
-            mollitia ut! Eaque aliquid, nobis porro suscipit ipsam molestias quisquam nam nisi dolores provident quas eligendi rerum.
+            {{resena.comentario}}
           </p>
-        </mat-card-content>
-      </mat-card>
-      <mat-card class="example-card" appearance="raised">
-        <mat-card-header>
-          <img mat-card-sm-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" class="img-border-custom">
-          <mat-card-title-group class="mx-2 align-items-center">
-            <mat-card-title>Marcos Adbul</mat-card-title>
-            <mat-card-subtitle>Marzo 20</mat-card-subtitle>
-          </mat-card-title-group>
-        </mat-card-header>
-        <mat-card-content class="my-3">
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit est eaque tempore ad 
-            mollitia ut! Eaque aliquid, nobis porro suscipit ipsam molestias quisquam nam nisi dolores provident quas eligendi rerum.
-          </p>
+          <div class="w-100 d-flex align-items-center">
+            <mat-icon class="custom-icon">star</mat-icon>
+            <span class="mb-0 mx-2">{{resena.calificacion}} Calificación</span>
+          </div>
         </mat-card-content>
       </mat-card>
     </div>
   </div>
-</div>
+</div> 

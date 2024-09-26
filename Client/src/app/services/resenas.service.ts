@@ -8,5 +8,8 @@ export const ResenasService = {
   },
   async getResenasById(idHabitacion: number) {
     return axios.get(`${environment.api}/resenas/list/${idHabitacion}`);
+  },
+  async getResenasHotelById(idHotel: number) {
+    return axios.get(`${environment.api}/resenas/list/hotel/${idHotel}`);
   }
 };

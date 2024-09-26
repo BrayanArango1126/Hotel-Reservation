@@ -1,24 +1,28 @@
 <div class="row">
-  <h3>Descripción</h3>
+  <h3 class="title-custom-room">Detalles del Hotel</h3>
   <div>
-    <img src="" alt="casa">
-    <p>6 visitantes 4 camas 1 baño privado</p>
-    <div>
-      <img src="" alt="">
-      <p>Cancelación gratis durante 48 horas</p>
-    </div>
-    <div>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit similique ipsam dolor expedita eaque ex qui assumenda aliquid adipisci 
-        optio hic obcaecati perspiciatis dolorem, nesciunt libero! Asperiores illum distinctio tempore.
-      </p>
-      <ul>
-        <li>Lorema scaas cuvuisdbv sd sdiuhv esjhdiu </li>
-        <li>a kjndajskvewoi vvlñerkñ hbtrb</li>
-        <li> vsdvkknsdlkñ ntnkaoppo poasoppod3 ewflwke </li>
+    <div class=" w-100 ">
+      <mat-icon class="custom-icon-house">house</mat-icon>
+      <ul class="w-100">
+        <li class="custom-tag my-2">Ubicación en la ciudad de {{hotelDetails[0].ciudad}}</li>
+        <li class="custom-tag my-2">Se encuentra en {{hotelDetails[0].pais}}</li>
+        <li class="custom-tag my-2">Contacto: {{hotelDetails[0].correo}}</li>
+        <li class="custom-tag my-2">Hostal: {{hotelDetails[0].categoria}}</li>
+        <li class="custom-tag my-2">Genero Permitido: {{hotelDetails[0].generoPermitido}}</li>
       </ul>
+    </div>
+    <div class="d-flex align-items-center my-4">
+      <mat-icon class="custom-icon-calendar">calendar_month</mat-icon>
+      <p class="mb-0 mx-3"><b>Cancelación gratis durante 48 horas</b></p>
+    </div>
+    <div class="d-flex flex-column">
+      <p>
+        {{hotelDetails[0].descripcion}}
+      </p>
+      <span class="mb-3"><b>{{hotelDetails[0].nombreHotel}}</b></span>
     </div>
   </div>
 </div>
+
 
 

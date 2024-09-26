@@ -26,4 +26,27 @@ router.get('/resenas/list/:idHabitacion', async (req, res) => {
   }
 });
 
+router.get('/resenas/list/hotel/:idHotel', async (req, res) => {
+  try{
+    const idHotel = req.params;
+    const result = await conexionApi.query('SELECT ' +
+      'res.idResena,' +
+      'res.idHotel,' +
+      'res.idUsuario,' +
+      'res.comentario,' +
+      'res.calificacion,' +
+      'usu.nombres AS nombreUsuario,' +
+      'usu.apellidos AS apellidoUsuario,' +
+      'res.fecha_registro as fecha' +
+    ' FROM resenas AS res' +
+    ' INNER JOIN usuarios as usu' +
+    ' 	ON usu.idUsuario = res.idUsuario' +
+    ' WHERE res.idHotel = ?;', [idHotel.idHotel]);
+    res.status(200).json(result[0]);
+  }
+  catch(error){
+    res.status(500).json({error: error.message});
+  }
+});
+
 export default router;

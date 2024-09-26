@@ -8,10 +8,24 @@
     <div class="card-custom-reservation">
       <div class="w-100">
         <ul class="list-unstyled">
-          <li><img src="" alt="calendario">Julio 22-25, 2024</li>
-          <li><img src="" alt="mapa">1235 Washington DC, Estados Unidos</li>
-          <li><img src="" alt="reloj">Ingreso al Hotel Antes de las 2 PM</li>
-          <li><img src="" alt="reloj">Salida del hotel 11 AM</li>
+          <li class=" my-2 d-flex align-items-center">
+            <mat-icon>calendar_month</mat-icon> 
+            <span class="mb-0 mx-2">Desde {{fechasReservadas.fechaInicio}} Hasta {{fechasReservadas.fechaFin}} ({{fechasReservadas.cantidadDias}} Días)</span>
+          </li>
+          <li class=" my-2 d-flex align-items-center">
+            <mat-icon>timer</mat-icon> 
+            <span class="mb-0 mx-2">Llegada al Hotel {{fechasReservadas.horaInicio}}</span>
+          </li>
+          <li class=" my-2 d-flex align-items-center">
+            <mat-icon>timer</mat-icon> 
+            <span class="mb-0 mx-2">Salida del Hotel {{fechasReservadas.horaFin}}</span>
+          </li>
+          <li class=" my-2 d-flex flex-column align-items-center">
+            <mat-icon>map</mat-icon> 
+            <span class="mb-0 mx-2">Ubicación</span>
+            <app-map></app-map>
+            <!-- <app-map-prueba></app-map-prueba> -->
+          </li>
         </ul>
       </div>
       <hr>
@@ -19,7 +33,7 @@
         <h6>Detalles de la reserva</h6>
         <div class="w-100 d-flex justify-content-between">
           <span>Monto Pagado</span>
-          <span>$330</span>
+          <span>${{fechasReservadas.total}} Cop.</span>
         </div>
         <div class="w-100 d-flex justify-content-between">
           <span>Código de Reserva del Hotel</span>
@@ -28,19 +42,18 @@
       </div>
       <div class="container-hotel w-100 d-flex justify-content-between">
         <div class="w-40 he-100">
-          <img src="img/hotel1.png" width="100%" height="100%" alt="">
+          <img src="{{habitacion.url}}" class="img-custom-confirmation" alt="">
         </div>
         <div class="container-info-hotel w-60 he-100">
-          <div class="px-3 he-100">
-            <div class="w-75 he-100 container-info-hotel-reservation">   
-              <div>
-                <span>Hotel en Estados Unidos</span>
-                <h6>Habitación para 4 personas</h6>
-                <p>1000 likes</p>
+          <div class="px-3 w-100 he-100">
+            <div class="w-100 he-100 container-info-hotel-reservation">   
+              <div class="w-100">
+                <h6 class="">Habitación en {{habitacion.nombreHotel}}</h6>
+                <span>Habitación para {{habitacion.capacidad}} personas</span>
               </div>
-              <div>
-                <span>stars</span>
-                <span>300 visitantes</span>
+              <div class="d-flex align-items-center">
+                <mat-icon>star</mat-icon>
+                <p class="mx-2 mb-0">{{habitacion.calificacion}}</p>
               </div>
             </div>
           </div>

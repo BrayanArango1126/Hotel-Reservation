@@ -1,0 +1,39 @@
+<div class="w-100 px-2 my-4 mb-5 mx-auto">
+  <div class="row">
+    <div>
+      <h3 class="title-hoteles">Actividades del hotel</h3>
+    </div>
+    <div class="w-100 d-flex align-content-center justify-content-between">
+      <div *ngFor="let actividad of listActividades" class="col-6 my-2">
+        <div class="container-hotel w-100 d-flex justify-content-between">
+          <div class=" custom-container-pointer w-50 he-100 ">
+            <img src="{{actividad.url}}"  width="100%" height="100%" class="custom-image-hotel" alt="actividad {{actividad.nombre}}">
+          </div>
+          <div class="container-info-hotel w-50 he-100">
+            <div class="he-100 w-100">
+              <div  class="custom-container-pointer w-100 he-100 d-flex flex-column justify-content-between">   
+                <div>
+                  <h3 class="title-custom-size">{{actividad.nombre}}</h3>
+                  <hr>
+                  <p class="custom-parrafo-descripcion">{{actividad.descripcion}}</p>
+                </div>
+                <div class="w-100 d-flex justify-content-start">
+                  <div class="w-100 flex-column d-flex">
+                    <span>Fecha Inicio: <b>{{actividad.fecha_inicio}}</b></span>
+                    <span>Fecha Fin: <b>{{actividad.fecha_fin}}</b></span>
+                  </div>
+                </div>
+                <div class="w-25 he-100 container-prices d-flex flex-column justify-content-between">
+                  <div class="w-100 text-end">
+                    <span class="custom-price"><b>${{actividad.precio}}</b></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

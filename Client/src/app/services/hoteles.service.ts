@@ -6,16 +6,13 @@ export const HotelesService = {
   async getHotelesList() {
     return axios.get(`${environment.api}/hoteles/list`);
   },
+  async getHotelesFilterList(params: any) {
+    return axios.get(`${environment.api}/hoteles/list/filtros`, {params: params});
+  },
   async getHotelById(id: number) {
-    return axios.get(`${environment.endpoint}/hoteles/edit/${id}`);
+    return axios.get(`${environment.api}/hoteles/edit/${id}`);
   },
-  async createHotel(hotel: Hotel) {
-    return axios.post(`${environment.endpoint}/hoteles/add`, hotel);
-  },
-  async editHotel(hotel: Hotel) {
-    return axios.put(`${environment.endpoint}/hoteles/edit/${hotel.idHotel}`, hotel);
-  },
-  async deleteHotel(idHotel: number) {
-    return axios.delete(`${environment.endpoint}/hoteles/delete/${idHotel}`);
+  async getHotelDetail(idHotel:number) {
+    return axios.get(`${environment.api}/hoteles/details/${idHotel}`);
   }
 };

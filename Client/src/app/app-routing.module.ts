@@ -18,12 +18,12 @@ const routes: Routes = [
   {path:'login',component:LoginComponent, pathMatch:"full"},
   {path:'register', component:RegisterComponent, pathMatch:"full"},
   {path:'places',component:PlacesComponent, pathMatch:"full"},
-  {path:'places/details',component:PlacesDetailsComponent, pathMatch:"full"},
+  {path:'places/details/:idHotel',component:PlacesDetailsComponent, pathMatch:"full"},
   {path:'places/reservations',component:ReservationsComponent, pathMatch:"full", canActivate:[loginGuard]},
-  {path:'places/confirmation-reservation',component:ConfirmationReservationComponent, pathMatch:"full"},
   {path:'rooms',component:RoomsComponent, pathMatch:"full"},
   {path:'rooms/details/:idHabitacion',component:RoomsDetailsComponent, pathMatch:"full"},
   {path:'rooms/reservations/:idHabitacion',component:ReservationRoomComponent, pathMatch:"full", canActivate:[loginGuard]},
+  {path:'rooms/confirmation-reservation/:idHabitacion',component:ConfirmationReservationComponent, pathMatch:"full", canActivate:[loginGuard]},
   {path:'users',loadChildren: () => import("./components/users/users.module").then(m => m.UsersModule)}, //esta logica e spara traer todas las  paginas
   {path:'**',redirectTo:'', pathMatch:"full"}
 ];

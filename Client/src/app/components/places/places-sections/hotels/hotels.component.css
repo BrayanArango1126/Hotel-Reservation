@@ -63,3 +63,7 @@
   overflow-y: hidden;
   max-height: 70px;
 }
+
+.custom-container-pointer{
+  cursor: pointer;
+}

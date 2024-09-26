@@ -63,6 +63,34 @@ router.get('/habitaciones/room/:idHabitacion', async (req, res) => {
   }
 });
 
+router.get('/habitaciones/room/ubicacion/:idHabitacion', async (req, res) => {
+  try{
+    const idHabitacion = req.params;
+    const [habitaciones] = await conexionApi.query('SELECT ' +
+	    ' Hab.idHabitacion, ' +
+	    ' Hab.idHotel, ' +
+      ' Hab.nombre,  ' +
+      ' Hot.nombre AS nombreHotel, ' +
+      ' Ciu.ciudad, ' +
+      ' Ciu.latitud AS ciudadLatitud , ' +
+      ' Ciu.longitud AS ciudadLongitud, ' +
+      ' Pais.pais, ' +
+      ' Pais.latitud AS paisLatitud, ' +
+      ' Pais.longitud AS paisLongitud ' +
+      ' FROM habitaciones AS Hab ' +
+      ' INNER JOIN Hoteles AS Hot ' +
+      ' 	ON Hot.idHotel = Hab.idHotel ' +
+      'INNER JOIN Ciudades as Ciu ' +
+      '	ON Ciu.idCiudad = Hot.idCiudad ' +
+      'INNER JOIN Paises as Pais ' +
+      '	ON Pais.idPais = Ciu.idPais ' +
+      ' WHERE Hab.idHabitacion = ?', [idHabitacion.idHabitacion]);
+    res.status(200).json(habitaciones);
+  }catch(err){
+    res.status(500).json({message: err.message});
+  }
+});
+
 router.get('/habitaciones/list', async (req, res) => {
   try {
     const [hoteles] = await conexionApi.query('SELECT ' +
@@ -92,5 +120,186 @@ router.get('/habitaciones/list', async (req, res) => {
     res.status(500).json({message: err.message});
   }
 });
+
+router.get('/habitaciones/list/precio', async (req, res) => {
+  try {
+    const precioMin = Number(req.query.precioMin);
+    const precioMax = Number(req.query.precioMax);
+
+    if(precioMin === undefined){
+      precioMin = 0;
+    }else if(precioMax === undefined){
+      precioMax = 10000000;
+    }
+    const [hoteles] = await conexionApi.query('SELECT ' +
+      ' Hab.idHabitacion, ' +
+      ' Hab.idHotel, ' +
+      ' Hab.nombre,  ' +
+      ' Hab.descripcion,  ' +
+      ' Hab.capacidad,  ' +
+      ' Hab.disponibilidad, ' +
+      ' Hab.cantidadCamas,  ' +
+      ' Hab.calificacion,  ' +
+      ' Hab.cantidadBanos, ' +
+      ' Hab.tipoCama,  ' +
+      ' Hab.cantidadHabitaciones, ' +
+      ' Hab.hayCocina, ' +
+      ' Hab.precio, ' +
+      ' Hot.nombre AS nombreHotel, ' +
+      ' Fo.url ' +
+    ' FROM habitaciones AS Hab ' +
+    ' LEFT JOIN Fotos AS Fo ' +
+    ' 	ON Fo.idHabitacion = Hab.idHabitacion ' +
+    ' LEFT JOIN Hoteles AS Hot ' +
+    ' 	ON Hab.idHotel = Hot.idHotel ' +
+    ' WHERE Hab.precio > ? AND Hab.precio < ? ' +
+    ' GROUP BY Hab.idHabitacion ;', [precioMin, precioMax]);
+    res.status(200).json(hoteles);
+  } catch (err) {
+    res.status(500).json({message: err.message});
+  }
+});
+
+router.get('/habitaciones/list/categoria_hotel', async (req, res) => {
+  try {
+    const idCategoria = req.query.idCategoriaHotel;
+
+    const [habitaciones] = await conexionApi.query('SELECT ' +
+      ' Hab.idHabitacion, ' +
+      ' Hab.idHotel, ' +
+      ' Hab.nombre,  ' +
+      ' Hab.descripcion,  ' +
+      ' Hab.capacidad,  ' +
+      ' Hab.disponibilidad, ' +
+      ' Hab.cantidadCamas,  ' +
+      ' Hab.calificacion,  ' +
+      ' Hab.cantidadBanos, ' +
+      ' Hab.tipoCama,  ' +
+      ' Hab.cantidadHabitaciones, ' +
+      ' Hab.hayCocina, ' +
+      ' Hab.precio, ' +
+      ' Hot.nombre AS nombreHotel, ' +
+      ' Fo.url ' +
+    ' FROM habitaciones AS Hab ' +
+    ' LEFT JOIN Fotos AS Fo ' +
+    ' 	ON Fo.idHabitacion = Hab.idHabitacion ' +
+    ' LEFT JOIN Hoteles AS Hot ' +
+    ' 	ON Hab.idHotel = Hot.idHotel ' +
+    ' WHERE Hot.idCategoriaHotel ' +
+    ' GROUP BY Hab.idHabitacion ;', [idCategoria]);
+    res.status(200).json(habitaciones);
+  } catch (err) {
+    res.status(500).json({message: err.message});
+  }
+});
+
+router.get('/habitaciones/list/hotel/:idHotel', async (req, res) => {
+  try {
+    const idHotel = req.params.idHotel;
+    const [hoteles] = await conexionApi.query('SELECT ' +
+	    ' Hab.idHabitacion, ' +
+	    ' Hab.idHotel, ' +
+      ' Hab.nombre,  ' +
+      ' Hab.descripcion,  ' +
+      ' Hab.capacidad,  ' +
+      ' Hab.disponibilidad, ' +
+      ' Hab.cantidadCamas,  ' +
+      ' Hab.calificacion,  ' +
+      ' Hab.cantidadBanos, ' +
+      ' Hab.tipoCama,  ' +
+      ' Hab.cantidadHabitaciones, ' +
+      ' Hab.hayCocina, ' +
+      ' Hab.precio, ' +
+      ' Hot.nombre AS nombreHotel, ' +
+      ' Fo.url ' +
+    ' FROM habitaciones AS Hab ' +
+    ' LEFT JOIN Fotos AS Fo ' +
+    ' 	ON Fo.idHabitacion = Hab.idHabitacion ' +
+    ' LEFT JOIN Hoteles AS Hot ' +
+    ' 	ON Hab.idHotel = Hot.idHotel ' +
+    ' WHERE Hab.idHotel = ? ' +
+    ' GROUP BY Hab.idHabitacion;', [idHotel]);
+    res.status(200).json(hoteles);
+  } catch (err) {
+    res.status(500).json({message: err.message});
+  }
+});
+
+
+router.get('/habitaciones/list/filtros', async (req, res) => {
+  try{
+    // const idCategoria = req.query.idCategoriaHotel;
+    // const precioMin = Number(req.query.precioMin);
+    // const precioMax = Number(req.query.precioMax);
+    // const calificacion = Number(req.query.calificacion);
+    // const idCiudad = req.query.idCiudad;
+    const idCategoriaHotel = req.query.idCategoriaHotel;
+    const precioMin = req.query.precioMin;
+    const precioMax = req.query.precioMax;
+    const calificacion = req.query.calificacion;
+    const idCiudad = req.query.idCiudad;
+
+    let query = 'SELECT ' +
+    ' Hab.idHabitacion, ' +
+    ' Hab.idHotel, ' +
+    ' Hab.nombre,  ' +
+    ' Hab.descripcion,  ' +
+    ' Hab.capacidad,  ' +
+    ' Hab.disponibilidad, ' +
+    ' Hab.cantidadCamas,  ' +
+    ' Hab.calificacion,  ' +
+    ' Hab.cantidadBanos, ' +
+    ' Hab.tipoCama,  ' +
+    ' Hab.cantidadHabitaciones, ' +
+    ' Hab.hayCocina, ' +
+    ' Hab.precio, ' +
+    ' Hot.nombre AS nombreHotel, ' +
+    ' Fo.url ' +
+    ' FROM habitaciones AS Hab ' +
+    ' LEFT JOIN Fotos AS Fo ' +
+    ' 	ON Fo.idHabitacion = Hab.idHabitacion ' +
+    ' LEFT JOIN Hoteles AS Hot ' +
+    ' 	ON Hab.idHotel = Hot.idHotel ';
+
+    let groupBy = ' GROUP BY Hab.idHabitacion;';
+
+    const conditions = [];
+    const values = [];
+
+    if (precioMin) {
+      conditions.push(' Hab.precio >= ?');
+      values.push(precioMin);
+    }
+    if (precioMax ) {
+      conditions.push(' Hab.precio <= ?');
+      values.push(precioMax);
+    }
+    if (idCategoriaHotel) {
+      conditions.push(' Hot.idCategoriaHotel = ?');
+      values.push(idCategoriaHotel);
+    }
+    if (calificacion) {
+      conditions.push(' Hab.calificacion = ?');
+      values.push(calificacion);
+    }
+    if (idCiudad) {
+      conditions.push(' Hot.idCiudad = ?');
+      values.push(idCiudad);
+    }
+
+    if (conditions.length > 0) {
+      query += ' WHERE ' + conditions.join(' AND ');
+    }
+
+    query += ' GROUP BY Hab.idHabitacion;';
+
+    const [habitaciones] = await conexionApi.query(query, values);
+    res.status(200).json(habitaciones);
+  }catch(err){
+    res.status(500).json({message: err.message});
+  }
+});
+
+
 
 export default router;

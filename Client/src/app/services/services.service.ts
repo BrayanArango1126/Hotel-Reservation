@@ -8,5 +8,8 @@ export const ServiciosService = {
   },
   async getServiciosById(idServicio: number) {
     return axios.get(`${environment.api}/servicios/list/${idServicio}`);
+  },
+  async getServiciosByIdHoteles(idHotel: number) {
+    return axios.get(`${environment.api}/servicios/list/${idHotel}`);
   }
 };

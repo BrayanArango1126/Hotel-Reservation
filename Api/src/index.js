@@ -12,7 +12,7 @@ import ciudadesRoutes from './routes/ciudades.routes.js';
 import categoriasHotelesRoutes from './routes/categorias_hoteles.routes.js';
 import usuariosRoutes from './routes/usuarios.routes.js';
 import generosRoutes from './routes/generos.routes.js';
-
+import paisesRoutes from './routes/paises.routes.js';
 
 //creamos el servidor
 const app = express();
@@ -41,6 +41,11 @@ app.use('/api', ciudadesRoutes);
 app.use('/api', categoriasHotelesRoutes);
 app.use('/api', usuariosRoutes);
 app.use('/api', generosRoutes);
+app.use('/api', paisesRoutes);
+
+
+
+
 //run server
 app.listen(app.get('port'), () => {
   console.log('El puerto que se está escuchando es', app.get('port'));
